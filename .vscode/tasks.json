@@ -1,58 +1,6 @@
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "shell",
-            "label": "C bulid for clang",
-            "command": "clang",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}"
-            },
-            "presentation": {
-                "clear": true
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "type": "shell",
-            "label": "C++ bulid for clang++",
-            "command": "clang++",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}"
-            },
-            "presentation": {
-                "clear": true
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "type": "shell",
-            "label": "execute",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "group": "test",
-            "presentation": {
-                "clear": true
-            }
-        }
-    ]
-}
+{ // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0", 
+    "tasks": [ { "type": "shell", "label": "g++ build active file", "command": "/usr/bin/g++", "args": [ "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}.out", // 1. execute .out file /* "&&", //to join building and running of the file "${fileDirname}/${fileBasenameNoExtension}.out", */ //2. file input /* "<", "${fileDirname}/sample_input.txt" */ //3. file output /* ">", "${fileDirname}/sample_output.txt" */ ], "options": { "cwd": "/usr/bin" }, "problemMatcher": [ "$gcc" ], "group": { "kind": "build", "isDefault": true } }, ] }
+
+출처: https://justdoitproject.tistory.com/31 [JUST DO IT PROJECT]
