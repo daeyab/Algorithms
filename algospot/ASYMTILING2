@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<memory.h>
+
+const int MOD = 1000000007;
+
+int tc,n;
+
+int dp[101];
+int dp2[101];
+
+int solve(int len){
+	if(len<=1)
+		return 1;
+	int &ret=dp[len];
+	if(ret!=-1)
+		return ret;
+	return ret=(solve(len-1)+solve(len-2)) % MOD;
+}
+
+int asymetric(int len){
+	if(len%2==1)
+		return (solve(n)-solve(n/2)+MOD)%MOD;
+
+		int total=solve(n);
+		total=(total-solve(n/2)+MOD) % MOD;
+		total=(total-solve(n/2-1)+MOD)%MOD;
+		return total;
+}
+
+//대칭이지 않은 경우를 모아서 출력 
+int asymetric2(int len){
+	//어차피 대칭은 안되니까? 
+	if(len<=2)
+		return 0;
+	int &ret=dp2[len];
+	if(ret!=-1)
+		return ret;
+	ret = ( asymetric2(len-2) ) % MOD;
+	ret = (ret + asymetric2(len-4) ) % MOD;
+	ret = (ret + solve(len-3))%MOD;
+	ret = (ret + solve(len-3))%MOD;
+	return ret;	
+}
+
+int main(){
+	scanf("%d",&tc);
+	while(tc--){
+		memset(dp,-1,sizeof(dp));
+		memset(dp2,-1,sizeof(dp2));
+		scanf("%d",&n);
+		printf("%d\n",asymetric2(n));
+	}
+}
