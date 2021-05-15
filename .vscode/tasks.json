@@ -1,6 +1,53 @@
-{ // See https://go.microsoft.com/fwlink/?LinkId=733558 
-    // for the documentation about the tasks.json format
-    "version": "2.0.0", 
-    "tasks": [ { "type": "shell", "label": "g++ build active file", "command": "/usr/bin/g++", "args": [ "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}.out", // 1. execute .out file /* "&&", //to join building and running of the file "${fileDirname}/${fileBasenameNoExtension}.out", */ //2. file input /* "<", "${fileDirname}/sample_input.txt" */ //3. file output /* ">", "${fileDirname}/sample_output.txt" */ ], "options": { "cwd": "/usr/bin" }, "problemMatcher": [ "$gcc" ], "group": { "kind": "build", "isDefault": true } }, ] }
-
-출처: https://justdoitproject.tistory.com/31 [JUST DO IT PROJECT]
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "C/C++: g++ build active file",
+        "command": "/usr/bin/g++",
+        "args": [
+          "-std=c++17", // 2020.08.05 추가
+          "-stdlib=libc++", // 2020.08.05 추가
+          "-g",
+          "${file}",
+          "-o",
+          //수정
+          "${fileDirname}/${fileBasenameNoExtension}.out",
+  
+          //추가
+          // 1. execute .out file
+          "&&", //to join building and running of the file
+          "${fileDirname}/${fileBasenameNoExtension}.out",
+  
+          //추가
+          //2. file input
+          //"<",
+          //"${fileDirname}/input.txt",
+  
+          //추가
+          //3. file output
+          //">",
+          //"${fileDirname}/output.txt"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": ["$gcc"],
+        // 수정
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      //실행 파일 추가
+      {
+        "label": "exec",
+        "type": "shell",
+        "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
