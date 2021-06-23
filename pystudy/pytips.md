@@ -19,6 +19,8 @@
   print(b)
   print(c)
   #a,b,c
-  ~~~
-
   
+  ##빠른 입력
+  import sys
+  data=sys.stdin.readline().rstrip()
+  ~~~
