@@ -24,3 +24,12 @@
   import sys
   data=sys.stdin.readline().rstrip()
   ~~~
+
+- 아스키 코드 변환
+
+  ~~~python
+  ord("A")	# 65, 아스키 코드 반환
+  chr(65)		# A, 숫자에 맞는 아스키 코드 반환
+  ~~~
+
+  
