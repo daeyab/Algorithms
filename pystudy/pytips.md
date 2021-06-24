@@ -32,4 +32,17 @@
   chr(65)		# A, 숫자에 맞는 아스키 코드 반환
   ~~~
 
+- 2차원 배열 만들기
+
+  ~~~python
+  # M * N 배열 만들기
+  d = [[ 0 ] * m for _ in range ( n )]
+  # 또는
+  board = []
+  cnt = 1
+  for i in range(row):
+      board.append(list(map(int, input().split())))
+  ~~~
+
   
+
