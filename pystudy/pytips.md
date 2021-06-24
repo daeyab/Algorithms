@@ -44,5 +44,23 @@
       board.append(list(map(int, input().split())))
   ~~~
 
+- 스택 / 큐
+
+  ~~~python
+  # stack
+  stack = []
+  stack.append(1)
+  stack.pop()
   
+  # queue
+  from collections import deque
+  queue = deque()
+  queue.append(1)
+  queue.popleft()
+  queue.reverse() # 역순으로 정렬
+  ~~~
+
+- 
+
+
 
