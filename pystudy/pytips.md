@@ -23,6 +23,11 @@
   ##빠른 입력
   import sys
   data=sys.stdin.readline().rstrip()
+  
+  #연속된 수를 정수 배열에 저장하
+  for _ in range(n):
+      arr.append(list(map(int, input())))
+  
   ~~~
 
 - 아스키 코드 변환
@@ -42,8 +47,10 @@
   cnt = 1
   for i in range(row):
       board.append(list(map(int, input().split())))
+      
+      
   ~~~
-
+  
 - 스택 / 큐
 
   ~~~python
