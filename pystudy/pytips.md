@@ -27,7 +27,9 @@
   #연속된 수를 정수 배열에 저장하
   for _ in range(n):
       arr.append(list(map(int, input())))
-  
+  #2차원 배열 입력 받기
+  for i in range(row):
+      board.append(list(map(int, input().split())))
   ~~~
 
 - 아스키 코드 변환
@@ -47,8 +49,6 @@
   cnt = 1
   for i in range(row):
       board.append(list(map(int, input().split())))
-      
-      
   ~~~
   
 - 스택 / 큐
@@ -65,6 +65,11 @@
   queue.append(1)
   queue.popleft()
   queue.reverse() # 역순으로 정렬
+  #queue 첫번째 원소 접근
+  first=queue[0]
+  queue.popleft() # 또는 그냥 바로 popleft 해도 됨
+  
+  while queue : # while(!queue.empty()) 랑 똑같음
   ~~~
 
 - 
