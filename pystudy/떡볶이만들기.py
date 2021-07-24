@@ -10,7 +10,7 @@ while left <= right:
         # print("mid")
         if mid < c:
             rest += c - mid
-    print(rest)
+    # print(rest)
     if m <= rest:
         left = mid + 1
         ans = mid
